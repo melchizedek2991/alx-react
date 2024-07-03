@@ -22,4 +22,10 @@ describe("<Footer />", () => {
   });
 
   it("verify that the link is displayed when the user is logged in within the context", () => {
-
+    const wrapper = shallow(
+      <Footer user={{ email: "larry@hd.com", password: "123456" }} />
+    );
+    expect(wrapper.find("div.footer a")).toHaveLength(1);
+    expect(wrapper.find("div.footer a").text()).toEqual("Contact us");
+  });
+});

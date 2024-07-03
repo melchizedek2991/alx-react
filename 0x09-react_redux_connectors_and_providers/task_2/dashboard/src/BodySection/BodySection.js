@@ -23,4 +23,29 @@ BodySection.defaultProps = {
 };
 
 BodySection.propTypes = {
+  title: PropTypes.string,
+};
 
+const screenSize = {
+  small: "@media screen and (max-width: 900px)",
+};
+
+const styles = StyleSheet.create({
+  bodySection: {
+    display: "flex",
+    flexWrap: "wrap",
+    width: "100%",
+    [screenSize.small]: {
+      boxSizing: "border-box",
+      paddingLeft: "50px",
+      paddingRight: "50px",
+      paddingBottom: "20px",
+    },
+  },
+
+  bodySectionH2: {
+    width: "100%",
+  },
+});
+
+export default BodySection;

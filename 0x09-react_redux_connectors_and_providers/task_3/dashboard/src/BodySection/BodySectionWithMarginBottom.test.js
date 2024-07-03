@@ -28,4 +28,15 @@ describe("<BodySectionWithMarginBottom />", () => {
     expect(BodySection).toHaveLength(1);
     expect(BodySection.props().title).toEqual("test title");
 
+    const internalBody = BodySection.dive();
 
+    const h2 = internalBody.find("h2");
+    const p = internalBody.find("p");
+
+    expect(h2).toHaveLength(1);
+    expect(h2.text()).toEqual("test title");
+
+    expect(p).toHaveLength(1);
+    expect(p.text()).toEqual("test children node");
+  });
+});

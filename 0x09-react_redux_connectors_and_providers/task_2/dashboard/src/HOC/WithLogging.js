@@ -18,4 +18,7 @@ function WithLogging(WrappedComponent) {
     }
   }
   HOC.displayName = `WithLogging(${componentName})`;
+  return HOC;
+}
 
+export default WithLogging;

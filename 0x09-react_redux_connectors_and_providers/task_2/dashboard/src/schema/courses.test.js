@@ -30,4 +30,4 @@ describe("courses normalizer tests", function () {
 
     expect(normalizedData).toEqual(expectedResult);
   });
-
+});

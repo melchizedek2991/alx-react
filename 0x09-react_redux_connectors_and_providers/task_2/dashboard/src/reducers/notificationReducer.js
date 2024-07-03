@@ -34,4 +34,8 @@ const notificationReducer = (state = Map(initialNotificationState), action) => {
 
     default:
       break;
+  }
+  return state;
+};
 
+export default notificationReducer;

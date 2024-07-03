@@ -29,4 +29,16 @@ export function getAllNotificationsByUser(userId) {
   for (const property in notifications) {
     if (notifications[property].author === userId) {
       notificationsByUser.push(messages[notifications[property].context]);
+    }
+  }
 
+  return notificationsByUser;
+}
+
+const notificationsNormalizer = (data) => {
+  const normalizedData = normalize(data, [notification]);
+
+  return normalizedData.entities;
+};
+
+export default notificationsNormalizer;

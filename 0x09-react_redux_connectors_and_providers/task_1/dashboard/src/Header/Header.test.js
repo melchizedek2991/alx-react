@@ -53,4 +53,37 @@ describe("<Header />", () => {
     const wrapper = mount(
       <AppContext.Provider
         value={{ user: { ...user, isLoggedIn: true }, logOut }}
+      >
+        <Header />
+      </AppContext.Provider>
+    );
 
+    expect(wrapper.find("#logoutSection")).toHaveLength(1);
+  });
+
+  it("mounts the Header component with a user defined (isLoggedIn is true and an email is set) and the logOut is linked to a spy. Verify that clicking on the link is calling the spy", () => {
+    const logOutSpy = jest.fn();
+
+    const wrapper = mount(
+      <AppContext.Provider
+        value={{
+          user: {
+            email: "Larry@hudson.com",
+            password: "123456789",
+            isLoggedIn: true,
+          },
+          logOut: logOutSpy,
+        }}
+      >
+        <Header />
+      </AppContext.Provider>
+    );
+
+    expect(wrapper.find("#logoutSection")).toHaveLength(1);
+    wrapper.find("#logoutSection span").simulate("click");
+
+    expect(logOutSpy).toHaveBeenCalled();
+
+    jest.restoreAllMocks();
+  });
+});

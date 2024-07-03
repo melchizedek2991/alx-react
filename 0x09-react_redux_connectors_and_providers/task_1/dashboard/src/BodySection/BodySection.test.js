@@ -32,4 +32,4 @@ describe("<BodySection />", () => {
     expect(p).toHaveLength(1);
     expect(p.text()).toEqual("test children node");
   });
-
+});

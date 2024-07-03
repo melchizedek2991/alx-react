@@ -19,4 +19,13 @@ Footer.defaultProps = {
 };
 
 Footer.propTypes = {
+  user: PropTypes.object,
+};
 
+const mapStateToProps = (state) => {
+  return {
+    user: state.get("user"),
+  };
+};
+
+export default connect(mapStateToProps, null)(Footer);

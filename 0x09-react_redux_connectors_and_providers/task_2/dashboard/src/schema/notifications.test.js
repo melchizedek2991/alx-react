@@ -47,4 +47,46 @@ describe("notification_tests", function () {
 
         expect(result).toEqual(expect.arrayContaining(expectedReturn));
       });
+      it("has a correct users entity", function () {
+        const expectedReturn = {
+          age: 25,
+          email: "poole.sanders@holberton.nz",
+          id: "5debd764a7c57c7839d722e9",
+          name: { first: "Poole", last: "Sanders" },
+          picture: "http://placehold.it/32x32",
+        };
 
+        const user = normalizedData.entities.users["5debd764a7c57c7839d722e9"];
+
+        expect(user).toEqual(expectedReturn);
+      });
+      it("has a correct messages entity", function () {
+        const expectedReturn = {
+          guid: "efb6c485-00f7-4fdf-97cc-5e12d14d6c41",
+          isRead: false,
+          type: "default",
+          value: "Cursus risus at ultrices mi.",
+        };
+
+        const message =
+          normalizedData.entities.messages[
+            "efb6c485-00f7-4fdf-97cc-5e12d14d6c41"
+          ];
+
+        expect(message).toEqual(expectedReturn);
+      });
+      it("has a correct notifications", function () {
+        const expectedReturn = {
+          author: "5debd764f8452ef92346c772",
+          context: "3068c575-d619-40af-bf12-dece1ee18dd3",
+          id: "5debd7642e815cd350407777",
+        };
+
+        const notification =
+          normalizedData.entities.notifications["5debd7642e815cd350407777"];
+
+        expect(notification).toEqual(expectedReturn);
+      });
+    });
+  });
+});

@@ -29,4 +29,15 @@ describe("<Header />", () => {
     expect(wrapper.find("div h1")).toHaveLength(1);
   });
 
+  it("mounts the Header component with a default context value. The logoutSection is not created", () => {
+    const wrapper = shallow(<Header />);
 
+    expect(wrapper.find("#logoutSection")).toHaveLength(0);
+  });
+
+  it("mounts the Header component with a user defined (isLoggedIn is true and an email is set). The logoutSection is created", () => {
+    const wrapper = shallow(<Header user={USER} />);
+
+    expect(wrapper.find("#logoutSection")).toHaveLength(1);
+  });
+});
